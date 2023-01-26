@@ -93,7 +93,7 @@
         .mystyle{
             position: absolute;
             top: 32%;
-            right: 40%;
+            right: 37.5%;
             cursor: pointer;
         }
     </style>
@@ -114,11 +114,12 @@
                 </div>
                 <br>
                 <div class="control-group">
+                    <input type="password" class="login-field" placeholder="password" id="login-pass" >
                     <i class="fa-regular fa-eye mystyle" onclick="showhide()"></i>
-                    <input type="password" class="login-field" placeholder="password" id="login-pass">
+
                     <p id="passwordError"></p>
                 </div>
-                <a class="btn btn-primary btn-large btn-block" href="./home.html">login</a>
+                <a>  <button class="btn btn-primary btn-large btn-block" onclick="myfunc()"> login</button></a>
                 <a class="login-link" href="#">Lost your password?</a>
             </div>
         </div>
@@ -135,7 +136,7 @@
         usernamePhoneNumber.addEventListener('input', (e) => {
             let UsernamePhonecheck = e.target.value;
             if (UsernamePhonecheck >= '0' && UsernamePhonecheck <= '9') {
-                if (UsernamePhonecheck.length > 1 && UsernamePhonecheck.length < 10) {
+                if (UsernamePhonecheck.length > 1 && UsernamePhonecheck.length < 11 ) {
                     console.log("error");
                     phoneError.innerHTML = "invalid phone number";
                 }
@@ -177,6 +178,12 @@ var a=0;
             else{
             password.setAttribute('type',"password")
             a=0;
+            }
+        }
+        const myfunc = () =>{
+
+            if( passwordError.innerHTML == "Password can't be hack"  && usernamePhoneError.innerHTML == ""  && phoneError.innerHTML == "" ){
+                location.href='home.html'
             }
         }
     </script>

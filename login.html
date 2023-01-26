@@ -167,7 +167,7 @@
       <p id="ErrorPassword" style="font-size: 12px; margin-left: 40px"></p>
       
     </form>
-    <button class="btn-login" onclick="location.href='home.html'">Log in</button>
+    <button class="btn-login" onclick="myfunc()">Log in</button>
     <p class="OR-text">OR</p>
     <a href="./Facebook.html"><button class="btn-facebook-login"> Login with Facebook </button></a>
     <a href="./Google.html"><button id="btn-google-login"> <i class="fa-brands fa-google "></i> Continue with Google</button></a>
@@ -227,7 +227,11 @@
     }
 
     
-
+const myfunc = () =>{
+  if(ErrorPassword.innerHTML == ""){
+    location.href="home.html"
+  }
+}
   </script>
 </body>
 
