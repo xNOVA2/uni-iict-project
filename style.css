@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: cursive;
+}
+
+.navbar {
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 0;
+  height: 70px;
+  align-items: center;
+}
+
+.main-nav {
+  list-style-type: none;
+}
+
+.nav-links,
+.logo {
+
+  text-decoration: none;
+  color: rgb(215, 19, 19);
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  margin-top: 5px;
+  width: 40px;
+  border-radius: 50%;
+  height: 40px;
+
+}
+
+
+.main-nav {
+  display: flex;
+  margin-right: 20px;
+  justify-content: flex-end;
+}
+
+
+
+.nav-links {
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+
+
+
+.create-pin {
+  font-weight: 600;
+  text-decoration: none;
+  background-color: rgb(235, 8, 8);
+  padding: 6px;
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: Sofia, sans-serif;
+}
+
+.container {
+  height: 490vh;
+  width: 100%;
+  columns: 5;
+  column-gap: 5px;
+  padding: 20px;
+  margin: auto;
+}
+
+.cards {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  position: relative;
+
+}
+
+.cards:hover {
+  transform: translateY(-3px);
+  transition: 0.5s ease-out;
+  box-shadow: 0px 0px 0px 5px rgba(rgb(214, 198, 198), 0.5);
+  display: block;
+}
+ 
+.btn-card {
+  position: absolute;
+  z-index: 1;
+  padding: 4px 11px;
+  background-color: #e42f595d;
+  color: rgb(255, 255, 255);
+  margin: 10px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2px solid #e42f59e0 ;
+}
+

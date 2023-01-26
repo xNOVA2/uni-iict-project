@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .myclass {
+      cursor: pointer;
+      margin: 0px 0px 0px -60px;
+    }
+
+    .pic {
+      z-index: -1;
+      width: 100%;
+      height: 99.5vh;
+      position: absolute;
+      filter: blur(3px);
+    }
+
+    #form {
+
+      width: 400px;
+      height: 650px;
+      background-color: white;
+      border-radius: 20px;
+      position: absolute;
+      top: 10%;
+      left: 33%;
+    }
+
+    .login-logo {
+      margin-top: 5px;
+      margin-left: 45%;
+    }
+
+    .welcome-text {
+      text-align: center;
+      align-items: center;
+      font-size: 25px;
+      color: rgba(18, 10, 11, 0.976);
+      font-weight: bolder;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+      padding: 40px;
+    }
+
+    input {
+      text-align: start;
+      padding: 10px 40px;
+      border-radius: 25px;
+      border: 1px solid;
+      margin: 0px 29px;
+      border-color: rgb(233, 46, 87);
+    }
+
+    label {
+      margin-left: 30px;
+      margin-top: 2px;
+    }
+
+    label {
+      font-size: small;
+    }
+
+    .btn-login {
+      cursor: pointer;
+      margin-left: 75px;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      background-color: rgb(230, 0, 35);
+      padding: 5px 99px;
+      border: 1px solid red;
+      font-size: small;
+      font-weight: 700;
+    }
+
+    .btn-facebook-login {
+      cursor: pointer;
+      margin-left: 75px;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      background-color: #1877f2;
+      padding: 5px 57px;
+      margin-top: 6px;
+      font-size: small;
+      font-weight: 600;
+      border-color: #1877f2;
+    }
+
+    a {
+      color: black;
+      font-weight: 800;
+    }
+
+    .text-bottom {
+      text-align: center;
+      padding: 25px;
+      font-weight: 100;
+      font-size: 10px;
+      font-family: sans-serif;
+    }
+
+    .text-bottom2 {
+      text-align: center;
+      font-weight: 100;
+      font-size: 10px;
+      font-family: sans-serif;
+    }
+
+    .OR-text {
+      margin-top: 10px;
+      margin-left: 45%;
+      font-size: small;
+      font-weight: 500;
+    }
+
+    #btn-google-login {
+      padding: 5px 49px;
+      margin-left: 72px;
+      border-radius: 20px;
+      margin-top: 10px;
+      border: 1px solid white;
+      color: red;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #hideshow {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 35%;
+      left: 70%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./Img/backgroundpic7.jpg" height="826.5px" width="100%" style="filter: contrast(82%);">
+  <div id="form">
+
+    <img src="./Img/redlogo.png" alt="" width="40px" height="40px" class="login-logo">
+    <h2 class="welcome-text">Welcome to piccole</h2>
+    <form>
+      <label for="Email"> Email</label>
+      <br>
+      <input type="text" id="Email" placeholder="Email...">
+      <p id="ErrorEmail" style="font-size: 12px; margin-left: 40px"></p>
+      <br>
+
+      <label for="Password" class="password-label"> password</label>
+      <br>
+      <input type="password" id="Password" placeholder="Password..."><i class="fa-regular fa-eye myclass"
+        onclick="showhidePassword() "></i>
+      <p id="ErrorPassword" style="font-size: 12px; margin-left: 40px"></p>
+      
+    </form>
+    <button class="btn-login" onclick="location.href='home.html'">Log in</button>
+    <p class="OR-text">OR</p>
+    <a href="./Facebook.html"><button class="btn-facebook-login"> Login with Facebook </button></a>
+    <a href="./Google.html"><button id="btn-google-login"> <i class="fa-brands fa-google "></i> Continue with Google</button></a>
+    <p class="text-bottom">By continuing, you agree to piccole's Terms of Service; Opens a new tab and acknowledge
+      you've read our <a href="">Privacy Policy</a>; Opens a new tab. Notice at collection; Opens a new tab.</p>
+    <p class="text-bottom2"><a href="">Not on Pinterest yet?</a><br>
+      Sign up
+      Are you a business?
+      Get started here!
+    </p>
+  </div>
+  <script src="https://kit.fontawesome.com/4241e58b94.js" crossorigin="anonymous"></script>
+  <script>
+    
+   
+
+
+    const email = document.getElementById('Email')
+    const password = document.getElementById('Password')
+
+    const ErrorPassword = document.getElementById('ErrorPassword')
+    const ErrorEmail = document.getElementById('ErrorEmail')
+    email.addEventListener('input', (e) => {
+      let EmailValue = e.target.value;
+      var pattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i
+      if (pattern.test(EmailValue)) {
+        ErrorEmail.innerHTML = "";
+      }
+      else {
+        ErrorEmail.innerHTML = "Invalid Email";
+      }
+    })
+
+    password.addEventListener('input', (e) => {
+      let passwordValue = e.target.value;
+
+      if (passwordValue.length > 0 && passwordValue.length < 7) {
+        ErrorPassword.innerHTML = "Password should be more then 7 char"
+      }
+      else {
+        ErrorPassword.innerHTML = "";
+      }
+    })
+    var a = 1;
+    const showhidePassword = () => {
+
+      if (a == 1) {
+        password.setAttribute("type", "text")
+        console.log(password);
+        a = 0;
+      }
+      else {
+        password.setAttribute("type", "password")
+        console.log(password);
+        a = 1;
+      }
+    }
+
+    
+
+  </script>
+</body>
+
+</html>

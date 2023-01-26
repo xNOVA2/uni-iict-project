@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *:focus {
+            outline: none;
+        }
+
+        body {
+            font-family: Arial;
+            background-color: #3498DB;
+            padding: 50px;
+        }
+
+        .login {
+            margin: 20px auto;
+            width: 300px;
+        }
+
+        .login-screen {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 5px
+        }
+
+        .app-title {
+            text-align: center;
+            color: #777;
+        }
+
+        .login-form {
+            text-align: center;
+        }
+
+        .control-group {
+            margin-bottom: 10px;
+        }
+
+        input {
+            text-align: center;
+            background-color: #ECF0F1;
+            border: 2px solid transparent;
+            border-radius: 3px;
+            font-size: 16px;
+            font-weight: 200;
+            padding: 10px 0;
+            width: 250px;
+            transition: border .5s;
+        }
+
+        input:focus {
+            border: 2px solid #3498DB;
+            box-shadow: none;
+        }
+
+        .btn {
+            border: 2px solid transparent;
+            background: #3498DB;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 25px;
+            padding: 10px 0;
+            text-decoration: none;
+            text-shadow: none;
+            border-radius: 3px;
+            box-shadow: none;
+            transition: 0.25s;
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            background-color: #2980B9;
+        }
+
+        .login-link {
+            font-size: 12px;
+            color: #444;
+            display: block;
+            margin-top: 12px;
+        }
+        .mystyle{
+            position: absolute;
+            top: 32%;
+            right: 40%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1>Facebook </h1>
+            </div>
+
+            <div class="login-form">
+                <div class="control-group">
+                    <input type="text" class="login-field" placeholder="Username or phoneNumber" id="login-name">
+                    <p id="usernamePhoneError" style="color: red; font-size: small;"></p>
+                    <p id="phoneError" style="color: red; font-size: small;"></p>
+                </div>
+                <br>
+                <div class="control-group">
+                    <i class="fa-regular fa-eye mystyle" onclick="showhide()"></i>
+                    <input type="password" class="login-field" placeholder="password" id="login-pass">
+                    <p id="passwordError"></p>
+                </div>
+                <a class="btn btn-primary btn-large btn-block" href="./home.html">login</a>
+                <a class="login-link" href="#">Lost your password?</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/4241e58b94.js" crossorigin="anonymous"></script>
+
+    <script>
+        let usernamePhoneNumber = document.getElementById('login-name')
+        let password = document.getElementById('login-pass')
+
+        let usernamePhoneError = document.getElementById('usernamePhoneError')
+        let passwordError = document.getElementById('passwordError')
+        let phoneError = document.getElementById('phoneError')
+        usernamePhoneNumber.addEventListener('input', (e) => {
+            let UsernamePhonecheck = e.target.value;
+            if (UsernamePhonecheck >= '0' && UsernamePhonecheck <= '9') {
+                if (UsernamePhonecheck.length > 1 && UsernamePhonecheck.length < 10) {
+                    console.log("error");
+                    phoneError.innerHTML = "invalid phone number";
+                }
+                else {
+                    phoneError.innerHTML = ""
+                }
+            }
+            else {
+                if (UsernamePhonecheck.length > 1 && UsernamePhonecheck.length < 7) {
+                    usernamePhoneError.innerHTML = "username should be  7 charactor"
+                }
+                else {
+                    usernamePhoneError.innerHTML = ""
+                }
+            }
+        })
+
+        password.addEventListener('input', (e) => {
+            passwordCheck = e.target.value;
+            if (passwordCheck.length > 1 && passwordCheck.length < 8) {
+                passwordError.innerHTML = "Password is weak"
+                passwordError.style.color = "red"
+            }
+            else if (passwordCheck.length > 8 && passwordCheck.length < 15) {
+                passwordError.innerHTML = "Password is okay"
+                passwordError.style.color = "blue"
+            }
+            else if (passwordCheck.length > 15 && passwordCheck.length < 20) {
+                passwordError.innerHTML = "Password can't be hack"
+                passwordError.style.color = "green"
+            }
+        })
+var a=0;
+        const showhide = () =>{
+            if(a==0){
+                password.setAttribute('type',"text")
+                a=1;
+            }
+            else{
+            password.setAttribute('type',"password")
+            a=0;
+            }
+        }
+    </script>
+</body>
+
+</html>

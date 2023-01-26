@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <link rel="stylesheet" href="stylee.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+
+    <div class="logo-side">
+
+      <img src="./Img/redlogo.png" class="logo">
+      <h3>Piccole</h3>
+    </div>
+    <div class="login-side">
+      <button class="btn-login"> <a href="/loginpage.html">Log in</a></button>
+    </div>
+  </nav>
+  <div class="upper-page">
+    <div class="welcome-container">
+      <h1 class="welcome-text">Welcome to <span> <br>Piccole</span></h1>
+      <img src="./Img/mainlogi-removebg-preview.png" class="mainlogo">
+
+    </div>
+    <img src="./Img/centerpic2.png" class="centerpic">
+
+  </div>
+
+  <div class="center-page">
+    <div class="left-side">
+      <h1 class="left-side-text">Save idea you like </h1>
+      <p>Collect your favorites so you can <br>get back to them later.</p>
+      <button class="btn-explore"><a href="/login">Explore</a></button>
+    </div>
+
+    <div class="pic-of-centerPage">
+      <img src="./Img/homePagepic7.jpg" class="centerPic2">
+      <img src="./Img/homePagepic9.jpg" class="centerPic3">
+      <img src="./Img/pic7.jpg" class="centerPic1">
+    </div>
+  </div>
+
+  <div id="SecondLast-Page">
+
+    <div class="pic-container">
+      <img src="./Img/food.jfif" class="food">
+      <img src="./Img/food1.jfif" class="food">
+
+    </div>
+    <div class="pic-container">
+
+      <img src="./Img/food2.jfif" class="food">
+      <img src="./Img/food3.jfif" class="food">
+      <h1 id="ideasearch">Search for an Idea</h1>
+
+    </div>
+    <div style="display: flex; justify-content: end; margin-right: 310px;" id="button-last-div">
+      <button class="btn-lastexplore"><a href="/login">Explore</a></button>
+
+    </div>
+
+    <p id="paragraph">What do you want to try next? Think of something you’re into—like “easy chicken dinner”—and see
+      what you find.</p>
+
+  </div>
+  <div id="last">
+    
+    <img src="./Img/3dpic2.jfif" style="position:absolute; left: 59%; z-index: 1;">
+    <img src="./Img/3dpic4.jfif" style="position: absolute; width: 200px; top: 370%; right: 5%; z-index: 1;">
+    <div class="wrapper">
+      <div class="container">
+        <div class="col-left">
+          <div class="login-text">
+            <img src="./Img/redlogo.png" width="50px" style="border-radius: 50%;">
+            <p>
+              The best part of piccole is discovering new things and ideas from people around the world.
+            </p>
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="login-form">
+            <h2>Sign in</h2>
+            <form id="form">
+              <p><input type="text" placeholder="Username" required id="username"></p>
+              <p id="error" style="color: red;"></p>
+              <p><input type="email" placeholder="Email" required id="Email"></p>
+              <p id="EmailError" style="color: red;"></p>
+              <p><input type="password" placeholder="Password" required id="password"><i class="fa-solid fa-eye"
+                  style="padding-top: 10px; cursor: pointer; " onclick="showhidee()"></i></p>
+              <p id="passwordE" style="color: red;"></p>
+
+              <input class="btn" type="button" value="Sing In" onclick="myfunc()" />
+
+              </p>
+              <a href="./Google.html">
+                <input class="btn btn-google" type="button" value="Sign in with Google" />
+
+              </a>
+
+              <p>
+                <a href="">Forget password?</a>
+                <a href="">Create an account.</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/4241e58b94.js" crossorigin="anonymous"></script>
+  <script>
+    const username = document.getElementById('username')
+    const password = document.getElementById('password')
+    const email = document.getElementById('Email')
+
+    var state = false;
+
+    const error = document.getElementById('error')
+    const Passworderror = document.getElementById('passwordE')
+    const Emailerror = document.getElementById('EmailError')
+
+    username.addEventListener('input', function (e) {
+      var usernamevalue = e.target.value;
+      if (usernamevalue.length > 0 && usernamevalue.length < 8) {
+
+        error.innerHTML = "username should be greater then 7 char"
+
+      }
+
+      else {
+        error.innerHTML = ""
+      }
+    })
+    var pattern = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/i
+    email.addEventListener('input', function (e) {
+      var emailvalue = e.target.value;
+      if (pattern.test(emailvalue)) {
+        Emailerror.innerHTML = ""
+      }
+      else {
+        Emailerror.innerHTML = "Invalid Email"
+      }
+    })
+
+
+    password.addEventListener('input', function (e) {
+
+      var passwordValue = e.target.value;
+      if (passwordValue.length > 1 && passwordValue.length < 5) {
+        Passworderror.innerHTML = "password is weak"
+        Passworderror.style.color = "red"
+
+
+      }
+      else if (passwordValue.length > 5 && passwordValue.length < 10) {
+        Passworderror.innerHTML = "password is okay but not suggested"
+        Passworderror.style.color = "blue"
+      }
+      else if (passwordValue.length > 10 && passwordValue.length < 16) {
+        Passworderror.innerHTML = "Prefect can't be hack"
+        Passworderror.style.color = "green"
+      }
+
+
+    })
+
+
+
+    const myfunc = () => {
+      if (Passworderror.innerHTML == "Prefect can't be hack" && Emailerror.innerHTML == "" && error.innerHTML == "") {
+        location.href = 'login.html'
+      }
+    }
+    const showhidee = () => {
+      if (state == false){
+        password.setAttribute('type', "password")
+      state = true
+
+    }
+else{
+      password.setAttribute('type', "text")
+      state = false
+    }
+  }
+  </script>
+</body>
+
+</html>
